@@ -421,3 +421,33 @@ input:focus {
   font-size: 0.9rem;
   margin-bottom: 5px;
 }
+/* Caixa de Informação da Classe */
+.class-info-box {
+  margin-top: 15px;
+  padding: 12px;
+  background-color: #1a1a1e;
+  border-left: 3px solid #04d361;
+  border-radius: 4px;
+}
+
+.class-info-box h4 {
+  color: #04d361;
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+}
+
+.class-info-box p {
+  font-size: 0.85rem;
+  color: #c4c4cc;
+  line-height: 1.4;
+}
+
+.class-summary-badge {
+  margin-top: 8px;
+  font-size: 0.8rem;
+  background-color: #202024;
+  color: #996dff;
+  padding: 6px;
+  border-radius: 4px;
+  font-weight: bold;
+}
