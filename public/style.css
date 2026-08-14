@@ -224,3 +224,14 @@ input:focus {
     justify-content: center;
   }
 }
+/* Estilo para links desabilitados */
+.nav-item.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: auto; /* Permite que o mouse passe por cima para mostrar o 'title' */
+}
+
+/* Impede a navegação/clique */
+.nav-item.disabled:hover {
+  color: #c4c4cc; /* Mantém a cor original sem dar highlight */
+}
