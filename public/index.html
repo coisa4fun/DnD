@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal do Aventureiro - D&D</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <h1 id="form-title">Entrar na Taverna</h1>
+
+      <form id="login-form">
+        <div class="input-group">
+          <label for="login-usuario">Usuário</label>
+          <input type="text" id="login-usuario" required placeholder="Seu nome de usuário">
+        </div>
+        <div class="input-group">
+          <label for="login-senha">Senha</label>
+          <input type="password" id="login-senha" required placeholder="Sua senha secreta">
+        </div>
+        <button type="submit" class="btn">Entrar</button>
+        <p class="toggle-text">Ainda não tem conta? <a href="#" id="show-register">Criar Conta</a></p>
+      </form>
+
+      <form id="register-form" class="hidden">
+        <div class="input-group">
+          <label for="reg-nome">Nome Real</label>
+          <input type="text" id="reg-nome" required placeholder="Seu nome completo">
+        </div>
+        <div class="input-group">
+          <label for="reg-usuario">Nome de Usuário</label>
+          <input type="text" id="reg-usuario" required placeholder="Seu nick no jogo">
+        </div>
+        <div class="input-group">
+          <label for="reg-senha">Senha</label>
+          <input type="password" id="reg-senha" required placeholder="Crie uma senha">
+        </div>
+        <div class="input-group">
+          <label for="reg-dica">Dica de Senha</label>
+          <input type="text" id="reg-dica" required placeholder="Ex: Nome do meu primeiro pet">
+        </div>
+        <button type="submit" class="btn">Criar Conta</button>
+        <p class="toggle-text">Já tem uma conta? <a href="#" id="show-login">Fazer Login</a></p>
+      </form>
+
+      <div id="mensagem" class="message"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
