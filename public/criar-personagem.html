@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Criar Aventureiro - D&D 5e</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="home-body">
+
+  <header class="navbar">
+    <nav class="nav-links">
+      <a href="home.html" class="nav-item">← Voltar para a Taverna</a>
+    </nav>
+  </header>
+
+  <main class="creation-container">
+    
+    <section class="form-section">
+      <form id="full-character-form">
+        
+        <h2 class="step-title">1. Dados do Aventureiro</h2>
+        
+        <div class="input-group">
+          <label for="nomePersonagem">Nome do Personagem</label>
+          <input type="text" id="nomePersonagem" placeholder="Ex: Valeros" data-help="O nome pelo qual seu herói é conhecido no mundo de jogo.">
+        </div>
+
+        <div class="input-row">
+          <div class="input-group">
+            <label for="classe">Classe</label>
+            <select id="classe" required data-help="A Classe define o estilo de combate, vida e habilidades do personagem.">
+              <option value="">Selecione uma classe...</option>
+              <option value="Bárbaro">Bárbaro</option>
+              <option value="Bardo">Bardo</option>
+              <option value="Bruxo">Bruxo</option>
+              <option value="Clérigo">Clérigo</option>
+              <option value="Druida">Druida</option>
+              <option value="Feiticeiro">Feiticeiro</option>
+              <option value="Guerreiro">Guerreiro</option>
+              <option value="Ladino">Ladino</option>
+              <option value="Mago">Mago</option>
+              <option value="Monge">Monge</option>
+              <option value="Paladino">Paladino</option>
+              <option value="Patrulheiro">Patrulheiro</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label for="nivel">Nível</label>
+            <input type="number" id="nivel" value="1" min="1" max="20" data-help="Personagens novos começam no Nível 1. O Nível define o Bônus de Proficiência.">
+          </div>
+        </div>
+
+        <div class="input-row">
+          <div class="input-group">
+            <label for="raca">Raça</label>
+            <select id="raca" required data-help="A raça concede bônus fixos de atributos e traços raciais únicos.">
+              <option value="">Selecione uma raça...</option>
+              <option value="Anão das Colinas">Anão das Colinas (+2 Con, +1 Sab)</option>
+              <option value="Anão da Montanha">Anão da Montanha (+2 Con, +2 For)</option>
+              <option value="Elfo Alto">Elfo Alto (+2 Des, +1 Int)</option>
+              <option value="Elfo da Floresta">Elfo da Floresta (+2 Des, +1 Sab)</option>
+
+              <option value="Halfling Pies-Leves">Halfling Pies-Leves (+2 Des, +1 Car)</option>
+
+              <option value="Humano">Humano (+1 em todos os atributos)</option>
+              <option value="Draconato">Draconato (+2 For, +1 Car)</option>
+
+              <option value="Gnomo das Rochas">Gnomo das Rochas (+2 Int, +1 Con)</option>
+              <option value="Meio-Elfo">Meio-Elfo (+2 Car, +1 em dois à escolha)</option>
+              <option value="Meio-Orc">Meio-Orc (+2 For, +1 Con)</option>
+              <option value="Tiefling">Tiefling (+2 Car, +1 Int)</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label for="antecedente">Antecedente (Background)</label>
+            <select id="antecedente" data-help="Define a história passada do herói e perícias adicionais.">
+              <option value="">Selecione um antecedente...</option>
+              <option value="Acólito">Acólito</option>
+              <option value="Artesão de Guilda">Artesão de Guilda</option>
+              <option value="Charlatão">Charlatão</option>
+              <option value="Criminoso">Criminoso</option>
+              <option value="Eremita">Eremita</option>
+              <option value="Forasteiro">Forasteiro</option>
+
+              <option value="Herói do Povo">Herói do Povo</option>
+
+              <option value="Marinheiro">Marinheiro</option>
+              <option value="Nobre">Nobre</option>
+
+              <option value="Órfão">Órfão</option>
+              <option value="Sábio">Sábio</option>
+              <option value="Soldado">Soldado</option>
+              <option value="Trovador">Trovador</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="input-row">
+          <div class="input-group">
+            <label for="alinhamento">Alinhamento</label>
+            <select id="alinhamento" data-help="Bússola moral do personagem no mundo.">
+              <option value="">Selecione o alinhamento...</option>
+              <option value="Leal e Bom">Leal e Bom</option>
+              <option value="Neutro e Bom">Neutro e Bom</option>
+              <option value="Caótico e Bom">Caótico e Bom</option>
+              <option value="Leal e Neutro">Leal e Neutro</option>
+
+              <option value="Neutro">Neutro</option>
+              <option value="Caótico e Neutro">Caótico e Neutro</option>
+              <option value="Leal e Mau">Leal e Mau</option>
+              <option value="Neutro e Mau">Neutro e Mau</option>
+
+              <option value="Caótico e Mau">Caótico e Mau</option>
+
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label for="nomeJogador">Nome do Jogador</label>
+
+            <input type="text" id="nomeJogador" placeholder="Seu nome real" data-help="Seu nome no mundo real.">
+          </div>
+        </div>
+
+        <hr class="section-divider">
+        <h2 class="step-title">2. Valores de Atributos</h2>
+        <p class="section-desc">Insira os valores base dos seus atributos (ex: usando Distribuição Padrão: 15, 14, 13, 12, 10, 8). Os bônus da raça selecionada serão somados automaticamente ao lado!</p>
+
+        <div class="attributes-grid">
+          <div class="attr-card">
+            <label>Força (FOR)</label>
+            <input type="number" id="base-for" value="10" min="1" max="20" data-help="Força física, capacidade de carga e dano em ataques corpo a corpo.">
+            <span class="attr-total" id="total-for">Total: 10 (+0)</span>
+          </div>
+
+          <div class="attr-card">
+            <label>Destreza (DES)</label>
+
+            <input type="number" id="base-des" value="10" min="1" max="20" data-help="Agilidade, esquiva, iniciativa e ataques à distância.">
+            <span class="attr-total" id="total-des">Total: 10 (+0)</span>
+          </div>
+
+          <div class="attr-card">
+            <label>Constituição (CON)</label>
+
+            <input type="number" id="base-con" value="10" min="1" max="20" data-help="Vigor físico e pontos de vida máximos.">
+            <span class="attr-total" id="total-con">Total: 10 (+0)</span>
+          </div>
+
+          <div class="attr-card">
+            <label>Inteligência (INT)</label>
+
+            <input type="number" id="base-int" value="10" min="1" max="20" data-help="Raciocínio lógico, memória, arcanismo e investigação.">
+            <span class="attr-total" id="total-int">Total: 10 (+0)</span>
+          </div>
+
+          <div class="attr-card">
+            <label>Sabedoria (SAB)</label>
+
+            <input type="number" id="base-sab" value="10" min="1" max="20" data-help="Percepção, intuição e sintonia com o mundo ao redor.">
+            <span class="attr-total" id="total-sab">Total: 10 (+0)</span>
+          </div>
+
+          <div class="attr-card">
+            <label>Carisma (CAR)</label>
+
+            <input type="number" id="base-car" value="10" min="1" max="20" data-help="Força de personalidade, persuasão e atuação.">
+            <span class="attr-total" id="total-car">Total: 10 (+0)</span>
+          </div>
+        </div>
+
+        <hr class="section-divider">
+        <h2 class="step-title">3. Perícias com Proficiência</h2>
+        <p class="section-desc" id="skills-info">Selecione as perícias nas quais seu personagem é treinado (Proficiência adiciona +<span id="prof-bonus-text">2</span> no teste).</p>
+
+        <div class="skills-grid">
+          <label><input type="checkbox" name="skills" value="Acrobacia"> Acrobacia (Des)</label>
+          <label><input type="checkbox" name="skills" value="Arcanismo"> Arcanismo (Int)</label>
+          <label><input type="checkbox" name="skills" value="Atletismo"> Atletismo (For)</label>
+          <label><input type="checkbox" name="skills" value="Atuação"> Atuação (Car)</label>
+
+          <label><input type="checkbox" name="skills" value="Enganação"> Enganação (Car)</label>
+          <label><input type="checkbox" name="skills" value="Furtividade"> Furtividade (Des)</label>
+
+          <label><input type="checkbox" name="skills" value="História"> História (Int)</label>
+          <label><input type="checkbox" name="skills" value="Intimidação"> Intimidação (Car)</label>
+
+          <label><input type="checkbox" name="skills" value="Intuição"> Intuição (Sab)</label>
+          <label><input type="checkbox" name="skills" value="Investigação"> Investigação (Int)</label>
+
+          <label><input type="checkbox" name="skills" value="Lidar com Animais"> Lidar com Animais (Sab)</label>
+          <label><input type="checkbox" name="skills" value="Medicina"> Medicina (Sab)</label>
+          <label><input type="checkbox" name="skills" value="Natureza"> Natureza (Int)</label>
+
+          <label><input type="checkbox" name="skills" value="Percepção"> Percepção (Sab)</label>
+
+          <label><input type="checkbox" name="skills" value="Persuasão"> Persuasão (Car)</label>
+          <label><input type="checkbox" name="skills" value="Prestidigitação"> Prestidigitação (Des)</label>
+
+          <label><input type="checkbox" name="skills" value="Religião"> Religião (Int)</label>
+
+          <label><input type="checkbox" name="skills" value="Sobrevivência"> Sobrevivência (Sab)</label>
+
+        </div>
+
+        <hr class="section-divider">
+        <h2 class="step-title">4. Equipamentos de Combate</h2>
+
+        <div class="input-row">
+          <div class="input-group">
+            <label for="armaPrincipal">Arma Principal</label>
+            <select id="armaPrincipal" data-help="Escolha a arma que seu aventureiro empunha em combate.">
+              <option value="">Sem arma principal...</option>
+              <optgroup label="Armas Simples">
+                <option value="Adaga (1d4 Perfurante)">Adaga (1d4 Perfurante)</option>
+                <option value="Lança (1d6 Perfurante)">Lança (1d6 Perfurante)</option>
+
+                <option value="Maça (1d6 Concussão)">Maça (1d6 Concussão)</option>
+                <option value="Bordão (1d6 Concussão)">Bordão (1d6 Concussão)</option>
+
+                <option value="Arco Curto (1d6 Perfurante)">Arco Curto (1d6 Perfurante)</option>
+
+                <option value="Besta Leve (1d8 Perfurante)">Besta Leve (1d8 Perfurante)</option>
+
+              </optgroup>
+              <optgroup label="Armas Marciais">
+                <option value="Espada Longa (1d8 Cortante)">Espada Longa (1d8 Cortante)</option>
+
+                <option value="Espada Grande (2d6 Cortante)">Espada Grande (2d6 Cortante)</option>
+
+                <option value="Cimitarra (1d6 Cortante)">Cimitarra (1d6 Cortante)</option>
+
+                <option value="Machado de Guerra (1d8 Cortante)">Machado de Guerra (1d8 Cortante)</option>
+
+                <option value="Rapieira (1d8 Perfurante)">Rapieira (1d8 Perfurante)</option>
+
+                <option value="Arco Longo (1d8 Perfurante)">Arco Longo (1d8 Perfurante)</option>
+              </optgroup>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label for="armadura">Armadura / Proteção</label>
+            <select id="armadura" data-help="Armaduras definem a sua Classe de Armadura (CA) base.">
+              <option value="Sem Armadura">Sem Armadura (CA 10 + Des)</option>
+
+              <optgroup label="Armaduras Leves">
+                <option value="Acolchoada (CA 11 + Des)">Acolchoada (CA 11 + Des)</option>
+                <option value="Couro (CA 11 + Des)">Couro (CA 11 + Des)</option>
+
+                <option value="Couro Batido (CA 12 + Des)">Couro Batido (CA 12 + Des)</option>
+
+              </optgroup>
+              <optgroup label="Armaduras Médias">
+                <option value="Gibeão de Couro (CA 12 + Des máx 2)">Gibeão de Couro (CA 12 + Des máx 2)</option>
+
+                <option value="Cota de Malha (CA 13 + Des máx 2)">Cota de Malha Média (CA 13 + Des máx 2)</option>
+                <option value="Peitoral de Aço (CA 14 + Des máx 2)">Peitoral de Aço (CA 14 + Des máx 2)</option>
+                <option value="Meia-Armadura (CA 15 + Des máx 2)">Meia-Armadura (CA 15 + Des máx 2)</option>
+              </optgroup>
+              <optgroup label="Armaduras Pesadas">
+                <option value="Cota de Anéis (CA 14)">Cota de Anéis (CA 14)</option>
+
+                <option value="Cota de Malha (CA 16)">Cota de Malha Pesada (CA 16)</option>
+
+                <option value="Placas (CA 18)">Armadura de Placas (CA 18)</option>
+
+              </optgroup>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-download">📜 Concluir e Baixar Ficha Preenchida (PDF)</button>
+      </form>
+    </section>
+
+    <aside class="help-section">
+      <div class="help-box">
+        <h3 id="help-title">💡 Guia do Aventureiro</h3>
+
+        <p id="help-text">Passe o cursor ou clique em qualquer campo para ver explicações e dicas de D&D 5e!</p>
+
+        <div class="summary-box">
+          <h4>📊 Resumo Atual</h4>
+          <p><strong>PV Estimados:</strong> <span id="pv-estimado">10</span></p>
+
+          <p><strong>CA Estimada:</strong> <span id="ca-estimada">10</span></p>
+          <p><strong>Proficiência:</strong> +<span id="prof-bonus">2</span></p>
+
+        </div>
+      </div>
+    </aside>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

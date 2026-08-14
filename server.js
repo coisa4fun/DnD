@@ -2,6 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const { createClient } = require('@supabase/supabase-js');
+const fs = require('fs');
+const { PDFDocument } = require('pdf-lib');
 
 // Configurações do Servidor
 const app = express();
@@ -101,6 +103,46 @@ app.post('/api/login', async (req, res) => {
   } catch (error) {
     console.error('Erro no login:', error);
     return res.status(500).json({ mensagem: 'Erro interno no servidor.' });
+  }
+});
+// Rota para ler o PDF, preencher o cabeçalho e retornar o arquivo
+app.post('/api/gerar-ficha', async (req, res) => {
+  try {
+    const dados = req.body;
+
+    // 1. Carrega o PDF base do projeto
+    const pdfBytes = fs.readFileSync(path.join(__dirname, 'D&D 5ed - Ficha Editável.pdf'));
+    const pdfDoc = await PDFDocument.load(pdfBytes);
+    const form = pdfDoc.getForm();
+
+    // 2. Preenche os campos do Cabeçalho (Página 1 e 2)
+    // Nota: Os nomes dos campos devem corresponder aos IDs internos do PDF
+    if (dados.nomePersonagem) form.getTextField('CharacterName')?.setText(dados.nomePersonagem);
+    if (dados.classeNivel) form.getTextField('ClassLevel')?.setText(dados.classeNivel);
+    if (dados.antecedente) form.getTextField('Background')?.setText(dados.antecedente);
+    if (dados.nomeJogador) form.getTextField('PlayerName')?.setText(dados.nomeJogador);
+    if (dados.raca) form.getTextField('Race')?.setText(dados.raca);
+    if (dados.alinhamento) form.getTextField('Alignment')?.setText(dados.alinhamento);
+    if (dados.xp) form.getTextField('XP')?.setText(dados.xp.toString());
+
+    // Dados de Aparência (Página 2)
+    if (dados.idade) form.getTextField('Age')?.setText(dados.idade.toString());
+    if (dados.altura) form.getTextField('Height')?.setText(dados.altura);
+    if (dados.peso) form.getTextField('Weight')?.setText(dados.peso);
+    if (dados.olhos) form.getTextField('Eyes')?.setText(dados.olhos);
+    if (dados.pele) form.getTextField('Skin')?.setText(dados.pele);
+    if (dados.cabelo) form.getTextField('Hair')?.setText(dados.cabelo);
+
+    // 3. Salva o PDF modificado em memória e envia para o cliente
+    const pdfModificadoBytes = await pdfDoc.save();
+
+    res.setHeader('Content-Type', 'application/pdf');
+    res.setHeader('Content-Disposition', 'attachment; filename=ficha-dnd.pdf');
+    return res.send(Buffer.from(pdfModificadoBytes));
+
+  } catch (error) {
+    console.error('Erro ao gerar PDF:', error);
+    return res.status(500).json({ mensagem: 'Erro ao gerar o arquivo PDF da ficha.' });
   }
 });
 

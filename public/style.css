@@ -235,3 +235,189 @@ input:focus {
 .nav-item.disabled:hover {
   color: #c4c4cc; /* Mantém a cor original sem dar highlight */
 }
+/* Layout da Criação de Personagem */
+.creation-container {
+  display: flex;
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 0 20px;
+  gap: 30px;
+  width: 100%;
+}
+
+.form-section {
+  flex: 2;
+  background-color: #202024;
+  padding: 30px;
+  border-radius: 8px;
+  border: 1px solid #323238;
+}
+
+.form-section h2 {
+  color: #996dff;
+  margin-bottom: 20px;
+}
+
+.form-section h3 {
+  color: #04d361;
+  margin: 20px 0 10px 0;
+  border-bottom: 1px solid #323238;
+  padding-bottom: 5px;
+}
+
+.input-row {
+  display: flex;
+  gap: 15px;
+}
+
+.input-row.trio .input-group {
+  flex: 1;
+}
+
+.input-row .input-group {
+  flex: 1;
+}
+
+.help-section {
+  flex: 1;
+}
+
+.help-box {
+  position: sticky;
+  top: 30px;
+  background-color: #121214;
+  border: 1px solid #996dff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(153, 109, 255, 0.1);
+}
+
+.help-box h3 {
+  color: #996dff;
+  margin-bottom: 12px;
+}
+
+.help-box p {
+  color: #c4c4cc;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+.btn-download {
+  margin-top: 25px;
+  background-color: #04d361;
+  color: #0d1117;
+  font-weight: bold;
+}
+
+.btn-download:hover {
+  background-color: #00e66b;
+}
+
+@media (max-width: 850px) {
+  .creation-container {
+    flex-direction: column;
+  }
+}
+/* Estilos para a Ficha Roolável */
+.step-title {
+  color: #996dff;
+  font-size: 1.4rem;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.section-desc {
+  color: #c4c4cc;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+.section-divider {
+  border: 0;
+  height: 1px;
+  background: #323238;
+  margin: 30px 0;
+}
+
+/* Grid de Atributos */
+.attributes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.attr-card {
+  background-color: #121214;
+  border: 1px solid #323238;
+  border-radius: 6px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.attr-card label {
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #04d361;
+  margin-bottom: 8px;
+}
+
+.attr-card input {
+  width: 70px;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.attr-total {
+  font-size: 0.8rem;
+  color: #996dff;
+  margin-top: 8px;
+  font-weight: 600;
+}
+
+/* Grid de Perícias */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+  background-color: #121214;
+  padding: 15px;
+  border-radius: 6px;
+  border: 1px solid #323238;
+}
+
+.skills-grid label {
+  font-size: 0.9rem;
+  color: #c4c4cc;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.skills-grid input[type="checkbox"] {
+  accent-color: #996dff;
+  width: 16px;
+  height: 16px;
+}
+
+/* Resumo Flutuante */
+.summary-box {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #323238;
+}
+
+.summary-box h4 {
+  color: #04d361;
+  margin-bottom: 8px;
+}
+
+.summary-box p {
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
