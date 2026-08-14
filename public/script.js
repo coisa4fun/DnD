@@ -72,7 +72,7 @@ loginForm.addEventListener('submit', async (e) => {
   e.preventDefault();
 
   // Feedback visual enquanto processa
-  mensagemDiv.innerText = 'Entrando...';
+  mensagemDiv.innerText = 'Entrando na taverna...';
   mensagemDiv.style.color = '#e1e1e6';
 
   const dados = {
@@ -95,8 +95,11 @@ loginForm.addEventListener('submit', async (e) => {
 
     if (response.ok) {
       loginForm.reset();
-      // Aqui, futuramente, faremos o redirecionamento para o painel de campanhas/fichas!
-      // Exemplo: window.location.href = '/dashboard.html';
+      
+      // Redireciona o aventureiro para a home.html após 1 segundo
+      setTimeout(() => {
+        window.location.href = '/home.html';
+      }, 1000);
     }
   } catch (error) {
     console.error('Erro de requisição:', error);
