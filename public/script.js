@@ -1,3 +1,4 @@
+// Seleção de Elementos do DOM
 const loginForm = document.getElementById('login-form');
 const registerForm = document.getElementById('register-form');
 const showRegisterBtn = document.getElementById('show-register');
@@ -5,7 +6,9 @@ const showLoginBtn = document.getElementById('show-login');
 const formTitle = document.getElementById('form-title');
 const mensagemDiv = document.getElementById('mensagem');
 
-// Alternar para tela de cadastro
+// --- ALTERNÂNCIA DE TELAS ---
+
+// Transição para a tela de Cadastro
 showRegisterBtn.addEventListener('click', (e) => {
   e.preventDefault();
   loginForm.classList.add('hidden');
@@ -14,7 +17,7 @@ showRegisterBtn.addEventListener('click', (e) => {
   mensagemDiv.innerText = '';
 });
 
-// Alternar para tela de login
+// Transição para a tela de Login
 showLoginBtn.addEventListener('click', (e) => {
   e.preventDefault();
   registerForm.classList.add('hidden');
@@ -23,9 +26,15 @@ showLoginBtn.addEventListener('click', (e) => {
   mensagemDiv.innerText = '';
 });
 
-// Enviar Cadastro
+// --- SUBMISSÃO DE FORMULÁRIOS ---
+
+// Processar Envio do Cadastro
 registerForm.addEventListener('submit', async (e) => {
   e.preventDefault();
+
+  // Feedback visual enquanto processa
+  mensagemDiv.innerText = 'Criando conta...';
+  mensagemDiv.style.color = '#e1e1e6';
 
   const dados = {
     nomeReal: document.getElementById('reg-nome').value,
@@ -34,41 +43,64 @@ registerForm.addEventListener('submit', async (e) => {
     dicaSenha: document.getElementById('reg-dica').value,
   };
 
-  const response = await fetch('/api/cadastrar', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(dados)
-  });
+  try {
+    const response = await fetch('/api/cadastrar', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(dados)
+    });
 
-  const resData = await response.json();
-  mensagemDiv.innerText = resData.mensagem;
-  mensagemDiv.style.color = response.ok ? '#04d361' : '#f75a68';
+    const resData = await response.json();
 
-  if (response.ok) {
-    registerForm.reset();
+    // Exibe mensagem vinda da API (Sucesso ou Erro)
+    mensagemDiv.innerText = resData.mensagem;
+    mensagemDiv.style.color = response.ok ? '#04d361' : '#f75a68';
+
+    // Se o cadastro deu certo, limpa os campos
+    if (response.ok) {
+      registerForm.reset();
+    }
+  } catch (error) {
+    console.error('Erro de requisição:', error);
+    mensagemDiv.innerText = 'Não foi possível conectar ao servidor. Verifique sua conexão.';
+    mensagemDiv.style.color = '#f75a68';
   }
 });
 
-// Enviar Login
+// Processar Envio do Login
 loginForm.addEventListener('submit', async (e) => {
   e.preventDefault();
+
+  // Feedback visual enquanto processa
+  mensagemDiv.innerText = 'Entrando...';
+  mensagemDiv.style.color = '#e1e1e6';
 
   const dados = {
     usuario: document.getElementById('login-usuario').value,
     senha: document.getElementById('login-senha').value,
   };
 
-  const response = await fetch('/api/login', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(dados)
-  });
+  try {
+    const response = await fetch('/api/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(dados)
+    });
 
-  const resData = await response.json();
-  mensagemDiv.innerText = resData.mensagem;
-  mensagemDiv.style.color = response.ok ? '#04d361' : '#f75a68';
+    const resData = await response.json();
 
-  if (response.ok) {
-    loginForm.reset();
+    // Exibe a mensagem de retorno
+    mensagemDiv.innerText = resData.mensagem;
+    mensagemDiv.style.color = response.ok ? '#04d361' : '#f75a68';
+
+    if (response.ok) {
+      loginForm.reset();
+      // Aqui, futuramente, faremos o redirecionamento para o painel de campanhas/fichas!
+      // Exemplo: window.location.href = '/dashboard.html';
+    }
+  } catch (error) {
+    console.error('Erro de requisição:', error);
+    mensagemDiv.innerText = 'Não foi possível conectar ao servidor. Verifique sua conexão.';
+    mensagemDiv.style.color = '#f75a68';
   }
 });
